@@ -21,7 +21,7 @@ public class ConnectionManager {
           
           try
           {            	
-             con = DriverManager.getConnection(url,"username","password"); 
+             con = DriverManager.getConnection(url,"root","password"); 
               								
           // assuming your SQL Server's	username is "username"               
           // and password is "password"

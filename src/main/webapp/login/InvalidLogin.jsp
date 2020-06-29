@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +17,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="invalid.css" />
     <title>Red362</title>
   </head>
   <body>
@@ -24,26 +26,12 @@
       <a class="navbar-brand" href="#">Dungeon and Dragons</a>
     </nav>
 
-    <div class="wrapper fadeInDown">
+    <div class="wrapper">
       <div id="formContent">
-       
-        <!--Image Form-->
-        <div class="fadeIn first">
-          <img src="./images/Ulisse.jpg" id="icon" alt="User Icon" />
-        </div>
-
-        <!-- Login Form -->
-        <form action="/login/LoginServerlet">
-          <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">
-          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-          <input type="submit" class="fadeIn fourth" value="Log In">
-        </form>
-
-        <!-- Sign In -->
-        <div id="formFooter">
-          <a class="underlineHover" href="./signIn.html">Non sei registrato? Registrati</a>
-        </div>
-    
+        <figure>
+          <img src="./images/x.jpg" width="50%" alt="error" />
+          <figcaption> <span id="invalid">Invalid Login</span></figcaption>
+        </figure>
       </div>
     </div>
 
