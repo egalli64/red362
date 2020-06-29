@@ -6,6 +6,7 @@ public class User {
 	private String username;
 	private String password;
 	private String email;
+	private boolean valid;
 	
 	public User(int user_id, String username, String password, String email) {
 		super();
@@ -48,6 +49,15 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
+	}
+	
 	
 	
 	
