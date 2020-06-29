@@ -20,7 +20,7 @@ public class LoginServerlet extends HttpServlet {
 		try {
 
 			User user = new User();
-			user.setUsername(request.getParameter("username"));
+			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
 
 			user = UserDAO.login(user);

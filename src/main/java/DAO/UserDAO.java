@@ -16,14 +16,14 @@ public class UserDAO {
 		// preparing some objects for connection
 		Statement stmt = null;
 
-		String username = bean.getUsername();
+		String email = bean.getEmail();
 		String password = bean.getPassword();
 
-		String searchQuery = "select * from users where username='" + username + "' AND password='" + password + "'";
+		String searchQuery = "select * from users where email='" + email + "' AND password='" + password + "'";
 
 		// "System.out.println" prints in the console; Normally used to trace the
 		// process
-		System.out.println("Your user name is " + username);
+		System.out.println("Your user email is " + email);
 		System.out.println("Your password is " + password);
 		System.out.println("Query: " + searchQuery);
 
