@@ -40,20 +40,20 @@
 
 
 <script>
-ob1 = "Prima Scelta Dinamica";
-ob2 = "Seconda Scelta Dinamica";
-ob3 = "Terza Scelta Dinamica";
-des = "Descrizione Dinamica";
+ob1 = "La saluti";
+ob2 = "Non ti fidi e ti allontani";
+ob3 = "Sguaini la spada e la affronti";
+des = "Ti incammini in un fitto bosco seguendo un sentiero di ciottoli quando ad un certo punto incontri una donna bellissima";
 document.getElementById("ob1").innerHTML = ob1;
 document.getElementById("ob2").innerHTML = ob2;
 document.getElementById("ob3").innerHTML = ob3;
 document.getElementById("des").innerHTML = des;
 
 function myFunction() {
-	  ob1 = "Prima scelta modificata";
-	  ob2 = "Seconda scelta modificata";
-	  ob3 = "Terza scelta modificata";
-	  des = "Descrizione dinamica modifcata"
+	  ob1 = "Ti fidi e la segui";
+	  ob2 = "Prendi tempo, le dici di dover sbrigare una cosa ma poi tornerai";
+	  ob3 = "Accetti di entrare ma non toccherai cibo";
+	  des = "La donna ti ferma e si presenta:<Perdonami avventuriero non volevo spaventarti, mi chiamo Circe. Mi sembri stanco per il disagio causato vorrei offrirti qualcosa> "
 	  document.getElementById("ob1").innerHTML = ob1;
 	  document.getElementById("ob2").innerHTML = ob2;
 	  document.getElementById("ob3").innerHTML = ob3;
