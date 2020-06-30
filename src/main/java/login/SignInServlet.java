@@ -39,11 +39,14 @@ public class SignInServlet extends HttpServlet {
 		if(!password.equals(repeatedPassword)) {
 			LOG.debug("Password diverse");
 		}
-		User user = dao.getUserByUsername(username);
+		User user = dao.getUserByEmail(email);
 		if(user == null) {
 			user = new User(username,password,email);
 			dao.saveUser(user);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.html");
+            dispatcher.forward(request, response);
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("signIn.jsp");
             dispatcher.forward(request, response);
 		}
 	}

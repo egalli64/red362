@@ -8,42 +8,42 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name ="dnd5_classes")
-public class Dnd5_classes {
+public class Dnd5 {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int class_id;
+	private int classId;
 	
 	@Column(name="class_name")
-	private String class_name;
+	private String className;
 	
-	public Dnd5_classes(int class_id, String class_name) {
+	public Dnd5(int class_id, String class_name) {
 		super();
-		this.class_id = class_id;
-		this.class_name = class_name;
+		this.classId = class_id;
+		this.className = class_name;
 	
 	}
 	
-	public Dnd5_classes() {}
+	public Dnd5() {}
 	
 	public int getClass_id() {
-		return class_id;
+		return this.classId;
 	}
 
 	public void setClass_id(int class_id) {
-		this.class_id = class_id;
+		this.classId= class_id;
 	}
 
 	public String getClass_name() {
-		return class_name;
+		return this.className;
 	}
 
 	public void setClass_name(String class_name) {
-		this.class_name = class_name;
+		this.className = class_name;
 }
 	
 	@Override
 	public String toString() {
-		return "Dnd5_classes [class_id=" + class_id + ", class_name=" + class_name + "]";
+		return "Dnd5_classes [class_id=" + this.classId + ", class_name=" + this.className + "]";
 	}
 }

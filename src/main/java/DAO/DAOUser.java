@@ -35,10 +35,10 @@ public class DAOUser {
         }
     }
 
-	public User getUserByUsername(String username) {
+	public User getUserByEmail(String email) {
 		User user = new User();
 		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-			user = (User) session.createQuery("From User U where U.username = :username").setParameter("username", username).uniqueResult();
+			user = (User) session.createQuery("From User U where U.email = :email").setParameter("email", email).uniqueResult();
 		}
 		return user;
 	}
