@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-    String redirectURL = "./login/login.html";
+    String redirectURL = "./login/login.jsp";
     response.sendRedirect(redirectURL);
 	%>
 </body>

@@ -21,7 +21,7 @@ public class LoginServerlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.sendRedirect("login.html");
+        response.sendRedirect("login.jsp");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

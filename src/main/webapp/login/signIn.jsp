@@ -23,7 +23,7 @@
   <body>
     <!--NavBar Identificativa colore Squadra-->
     <nav class="navbar fixed-top navbar-light red">
-      <a class="navbar-brand" href="login.html">Dungeon and Dragons</a>
+      <a class="navbar-brand" href="login.jsp">Dungeon and Dragons</a>
     </nav>
 
     <div class="wrapper">

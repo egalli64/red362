@@ -43,11 +43,11 @@ public class SignInServlet extends HttpServlet {
 		if(user == null) {
 			user = new User(username,password,email);
 			dao.saveUser(user);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.html");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			request.setAttribute("userRegistered", "Utente registrato correttamente. Fai il Login");
             dispatcher.forward(request, response);
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("signIn.jsp");
-            dispatcher.forward(request, response);
+			response.sendRedirect("invalidLogin.jsp");;
 		}
 	}
 
