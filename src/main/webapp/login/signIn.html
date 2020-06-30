@@ -21,7 +21,7 @@
   <body>
     <!--NavBar Identificativa colore Squadra-->
     <nav class="navbar fixed-top navbar-light red">
-      <a class="navbar-brand" href="#">Dungeon and Dragons</a>
+      <a class="navbar-brand" href="login.html">Dungeon and Dragons</a>
     </nav>
 
     <div class="wrapper">
@@ -31,25 +31,32 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-          <input type="email" name="email" id="email" placeholder="Email"/>
+        <form method="post" action="signIn">
+          <input 
+          	type="email" 
+          	name="email" 
+          	id="email" 
+          	placeholder="Email"/>
           <input
             type="text"
             name = "username"
             id="username"
             placeholder="Inserisci il tuo nome utente"
+            required
           />
           <input
             type="password"
             name = "password"
             id="password"
             placeholder="Password (min 8 char)"
+            required
           />
           <input
           type="password"
           name="repeatedPassword"
           id="repeatedPassword"
           placeholder="Ripeti la password"
+          required
         />
           <input type="submit" value="Sign In" />
         </form>
