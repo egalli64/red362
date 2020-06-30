@@ -1,3 +1,16 @@
+-- run it as root
+
+drop schema if exists red362;
+drop user if exists red362;
+
+create user red362 identified by 'password';
+create schema red362;
+
+-- run it with all privileges
+
+grant all privileges on red362.* to red362;
+grant alter routine on red362.* to red362;
+
 use red362;
 
 drop table  if exists personaggi;
@@ -7,7 +20,7 @@ drop table  if exists users;
 CREATE TABLE IF NOT EXISTS dnd5_classes (
   class_id int(11) NOT NULL AUTO_INCREMENT,
   class_name varchar(9) NOT NULL,
-  PRIMARY KEY (`class_id`)
+  PRIMARY KEY (class_id)
 );
 
 INSERT INTO dnd5_classes (class_id, class_name) VALUES

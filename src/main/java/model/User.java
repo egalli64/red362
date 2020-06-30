@@ -1,12 +1,29 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="users")
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
+	
+	@Column(name="username")
 	private String username;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="email")
 	private String email;
-	private boolean valid;
+	
 	
 	public User(int user_id, String username, String password, String email) {
 		super();
@@ -50,17 +67,11 @@ public class User {
 		this.email = email;
 	}
 
-	public boolean isValid() {
-		return valid;
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ "]";
 	}
 
-	public void setValid(boolean valid) {
-		this.valid = valid;
-	}
-	
-	
-	
-	
-	
 
 }
