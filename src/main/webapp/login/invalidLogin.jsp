@@ -24,6 +24,7 @@
     <!--NavBar Identificativa colore Squadra-->
     <nav class="navbar fixed-top navbar-light red">
       <a class="navbar-brand" href="#">Dungeon and Dragons</a>
+      <input type="button" value="Go Back" onclick="history.back()">
     </nav>
 
     <div class="wrapper">
@@ -34,6 +35,8 @@
         </figure>
       </div>
     </div>
+
+
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
