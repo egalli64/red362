@@ -1,6 +1,8 @@
 package login;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,43 +10,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.UserDAO;
+import DAO.DAOUser;
 import model.User;
 
 @WebServlet("/login/LoginServerlet")
 public class LoginServerlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
+	private DAOUser loginDao = new DAOUser();
 
-			User user = new User();
-			user.setEmail(request.getParameter("email"));
-			user.setPassword(request.getParameter("password"));
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.sendRedirect("login.html");
+    }
 
-			user = UserDAO.login(user);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        try {
+            authenticate(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-			if (user.isValid()) {
+    private void authenticate(HttpServletRequest request, HttpServletResponse response)
+    throws Exception {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-				HttpSession session = request.getSession(true);
-				session.setAttribute("currentSessionUser", user);
-				response.sendRedirect("userLogged.jsp"); // logged-in page
-			}
-
-			else
-				response.sendRedirect("invalidLogin.jsp"); // error page
-		}
-
-		catch (Throwable theException) {
-			System.out.println(theException);
-		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        if (loginDao.validate(email, password)) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("userLogged.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("invalidLogin.jsp");
+        }
+    }
 
 }
