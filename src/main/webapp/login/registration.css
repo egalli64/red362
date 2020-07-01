@@ -20,7 +20,7 @@ body {
   
   .wrapper {
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-direction: column; 
     justify-content: center;
     width: 100%;
@@ -56,3 +56,13 @@ body {
     border-radius: 0 0 10px 10px;
   }
   
+  #formula {
+  	height: 800px;
+  	width: 600px;
+  	
+  }
+ 
+	.container-image {
+		height: 800px;
+		width: 600px;
+	}

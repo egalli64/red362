@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,25 +19,27 @@
 </head>
 
 <body>
-		<!--NavBar Identificativa colore Squadra-->
-		<nav class="navbar fixed-top navbar-light red">
-			<a class="navbar-brand" href="#">Dungeon and Dragons</a> <input
-				type="button" value="Go Back!" onclick="history.back()">
-		</nav>
+	<!--NavBar Identificativa colore Squadra-->
+	<nav class="navbar fixed-top navbar-light red">
+		<a class="navbar-brand" href="userLogged.jsp">Dungeon and Dragons</a>
+	</nav>
 	<div class="wrapper">
 		<form id="formContent">
-			<p class="text-justify text-center text-primary">Benvenuto avventuriero, avvicinati... un po' di più... un po'
-				di più... ok niente non ci vedo potresti dirmi che tipo sei?</p>
-				<input type="radio" name="option" value="Guerriero" id="guerriero" checked>Guerriero <br>
-				<input type="radio" name="option" value="Vate" id="vate" >Vate <br>
-				<input type="radio" name="option" value="Prete" id="prete" > Prete <br>
-				
-				<div class="container">
-				<img src="images/Guerriero.jpg" width="400" class="rounded mx-auto d-block" alt="..." id="formula">
+			<h2 class="font-weight-bold text-success">Benvenuto: <c:out value="${sessionScope.user.username}" /></h2><br>
+			<input type="radio" name="option" value="Guerriero" id="guerriero"
+				checked>Guerriero <br> <input type="radio"
+				name="option" value="Vate" id="vate">Vate <br> <input
+				type="radio" name="option" value="Prete" id="prete"> Prete <br>
+			<div class="container-image">
+				<img src="images/Guerriero.jpg"
+					class="rounded mx-auto d-block" alt="..." id="formula">
+			</div>
+			<div id="formFooter">
+				<button class="btn btn-primary text-uppercase font-weight-bold"> Gioca</button>
 			</div>
 		</form>
 	</div>
-	
+
 
 
 </body>
@@ -53,6 +58,6 @@
 		}
 	}
 </script>
-	
+
 </html>
 

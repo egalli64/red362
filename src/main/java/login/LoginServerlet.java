@@ -37,8 +37,10 @@ public class LoginServerlet extends HttpServlet {
     throws Exception {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-        if (loginDao.validate(email, password)) {
+        User user = loginDao.validate(email, password);
+        if (user != null) {
+        	HttpSession session = request.getSession();
+        	session.setAttribute("user", user);
             RequestDispatcher dispatcher = request.getRequestDispatcher("userLogged.jsp");
             dispatcher.forward(request, response);
         } else {

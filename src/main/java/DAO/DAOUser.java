@@ -40,15 +40,15 @@ public class DAOUser {
 		return user;
 	}
 
-	public boolean validate(String email, String password) {
+	public User validate(String email, String password) {
 		User user = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			user = (User) session.createQuery("FROM User U WHERE U.email = :email").setParameter("email", email)
 					.uniqueResult();
 			if (user != null && user.getPassword().equals(password)) {
-				return true;
+				return user;
 			}
 		}
-		return false;
+		return null;
 	}
 }
