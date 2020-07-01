@@ -41,5 +41,5 @@ create table if not exists characters(
    INSERT INTO users(username,password,email) VALUES ('A','qwerty','caso@caso.caso');
    INSERT INTO users(username, password, email) VALUES ('B', '11111111', 'second@second.com');
    
-   INSERT INTO characters(nickname, user_id, strenght_exp, charm_exp, intelligence_exp, level, class_id) VALUES ('Rock', 1,'0.1',0.2,0.1,0,1);
-   INSERT INTO characters(nickname, user_id, strenght_exp, charm_exp, intelligence_exp, level, class_id) VALUES ('Vat', 2,0.1,0.2,0.3,0,2);
+   INSERT INTO characters(nickname, user_id, strength_exp, charm_exp, intelligence_exp, level, class_id) VALUES ('Rock', 1,'0.1',0.2,0.1,0,1);
+   INSERT INTO characters(nickname, user_id, strength_exp, charm_exp, intelligence_exp, level, class_id) VALUES ('Vat', 2,0.1,0.2,0.3,0,2);
