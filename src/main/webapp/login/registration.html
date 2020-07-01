@@ -17,6 +17,49 @@
     />
     <link rel="stylesheet" href="login.css" />
     <title>Red362</title>
+    
+    <script>
+                    function func() 
+                {
+                    var type = document.getElementsByName("status");
+                    var image = document.getElementsById("showimage");
+                    if(type[0].checked)
+                    {
+                        var val = type[0].value;
+                        alert(val);
+                        image.innerHTML = '<img src="images/Guerriero.jpg" class="d-block w-1" name = "showimage" height="200" alt="Rappresentative image">';
+                    }
+                    
+                    else if(type[1].checked)
+                    {
+                        var val = type[1].value;
+                        alert(val);
+                        image.innerHTML = '<img src=images/Vate.jpg>';
+                    }
+                    
+                    else if(type[2].checked)
+                    {
+                        var val = type[2].value;
+                        alert(val);
+                        image.innerHTML = "<img src=images/"+val+".jpg>";
+                    }
+                }
+                    
+                    
+                    function guerClick(){
+                    	var image = document.getElementsById("showimage");
+                        image.innerHTML = '<img src="images/Guerriero.jpg">';
+                    }
+                    function vateClick(){
+                    	var image = document.getElementsById("showimage");
+                        image.src = '<img src="images/Vate.jpg">';	
+                    }
+                    function preteClick(){
+                    	System.out.println("click verified");
+                    	document.getElementsById("showimage").image.src = '<img src="images/Prete.jpg">';	
+                    }
+                    </script>
+    
   </head>
   <body>
   <p>
@@ -34,21 +77,28 @@
     <h1>.</h1>
     <h1>.</h1>
     <h1></h1>
-    <h1>.</h1>
-    
+    <h1></h1>
+  <form>  
   <p>Benvenuto avventuriero, avvicinati... un po' di più... un po' di più... ok niente non ci vedo potresti dirmi che tipo sei?</p>
-  <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Guerriero</label><br>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Vate</label><br>
-  <input type="radio" id="other" name="gender" value="other">
-  <label for="other">Prete</label>
+  <input type="radio" id="guerriero" name="status" value="Guerriero" onclick = "func();">
+  <label for="Guerriero">Guerriero</label><br>
+  <input type="radio" id="vate" name="status" value="Vate" onclick = "func();">
+  <label for="Vate">Vate</label><br>
+  <input type="radio" id="prete" name="status" value="Prete" onclick = "func();">
+  <label for="Prete">Prete</label>
 
   <br>  
+    
+	<img id="showimage"></img>
 
-    
-    
-    
+     <img src="images/Guerriero.jpg" class="d-block w-1" id = "showimage2" height="200" alt="Rappresentative image">
+
+
+	<button class="btn btn-primary" type="submit">Process
+		Data</button>
+</form>
+
+
   </body>
 </html>
     
