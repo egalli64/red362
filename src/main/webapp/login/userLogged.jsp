@@ -1,77 +1,80 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="./bootstrap-italia.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous">
-<%
-	if (request.getParameter("email") == null) {
-	response.sendRedirect("login.html");
-}
-%>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="registration.css" />
+<title>Red362</title>
+</head>
+
 <body>
-	<p>Utente Loggato Correttamente</p>
-	<font face="Verdana" size="4"> <i><p id="des"></p></i>
-	</font>
-
-	<div>
-		<div class="form-check">
-			<input name="gruppo1" type="radio" id="radio1" checked> <label
-				for="radio1">
-				<p id="ob1"></p>
-			</label>
-		</div>
-		<div class="form-check">
-			<input name="gruppo1" type="radio" id="radio2"> <label
-				for="radio2"><p id="ob2"></p></label>
-		</div>
-		<div class="form-check">
-			<input name="gruppo1" type="radio" id="radio2"> <label
-				for="radio2"><p id="ob3"></p></label>
-		</div>
+		<!--NavBar Identificativa colore Squadra-->
+		<nav class="navbar fixed-top navbar-light red">
+			<a class="navbar-brand" href="#">Dungeon and Dragons</a> <input
+				type="button" value="Go Back!" onclick="history.back()">
+		</nav>
+	<div class="wrapper">
+		<form id="formContent">
+			<p class="text-justify text-center text-primary">Benvenuto avventuriero, avvicinati... un po' di più... un po'
+				di più... ok niente non ci vedo potresti dirmi che tipo sei?</p>
+				<input type="radio" name="option" value="Guerriero" id="guerriero" checked>Guerriero <br>
+				<input type="radio" name="option" value="Vate" id="vate" >Vate <br>
+				<input type="radio" name="option" value="Prete" id="prete" > Prete <br>
+				
+				<div class="container">
+				<img src="images/Guerriero.jpg" width="400" class="rounded mx-auto d-block" alt="..." id="formula">
+			</div>
+		</form>
 	</div>
-	</div>
-
-	<button class="btn btn-primary" type="submit" onclick="myFunction()">Process
-		Data</button>
-
-
-
-
-
-	<script>
-		ob1 = "La saluti";
-		ob2 = "Non ti fidi e ti allontani";
-		ob3 = "Sguaini la spada e la affronti";
-		des = "Ti incammini in un fitto bosco seguendo un sentiero di ciottoli quando ad un certo punto incontri una donna bellissima";
-		document.getElementById("ob1").innerHTML = ob1;
-		document.getElementById("ob2").innerHTML = ob2;
-		document.getElementById("ob3").innerHTML = ob3;
-		document.getElementById("des").innerHTML = des;
-
-		function myFunction() {
-			ob1 = "Ti fidi e la segui";
-			ob2 = "Prendi tempo, le dici di dover sbrigare una cosa ma poi tornerai";
-			ob3 = "Accetti di entrare ma non toccherai cibo";
-			des = "La donna ti ferma e si presenta:<Perdonami avventuriero non volevo spaventarti, mi chiamo Circe. Mi sembri stanco per il disagio causato vorrei offrirti qualcosa> "
-			document.getElementById("ob1").innerHTML = ob1;
-			document.getElementById("ob2").innerHTML = ob2;
-			document.getElementById("ob3").innerHTML = ob3;
-			document.getElementById("des").innerHTML = des;
-		}
-	</script>
-
+	
 
 
 </body>
-</html>
 
-<p id="demo"></p>
+<script type='text/javascript'>
+    $(document).ready(function(){
+        $("input:radio[name=option]").click(function() {
+            var value = $(this).val();
+            var image_name;
+            if(value == 'Guerriero'){
+                image_name = "images/Guerriero.jpg";
+            }else{
+                if(value == 'Vate'){
+                    image_name = "images/Vate.jpg";
+                }else{
+                    image_name = "images/Prete.jpg";
+                }
+            }
+             $('#formula').attr('src', image_name);
+        });
+    });
+
+	function guerClick() {
+		var image = document.getElementsByName("showimage");
+		image.innerHTML = '<img src="images/Guerriero.jpg">';
+	}
+	function vateClick() {
+		var image = document.getElementsByName("showimage");
+		image.src = '<img src="images/Vate.jpg">';
+	}
+	function preteClick() {
+		System.out.println("click verified");
+		document.getElementsByName("showimage").image.src = '<img src="images/Prete.jpg">';
+	}
+</script>
+	
+</script>
+</html>
 
