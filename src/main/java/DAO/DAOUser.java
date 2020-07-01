@@ -1,5 +1,7 @@
 package DAO;
 
+import java.sql.SQLException;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.ParameterExpression;
@@ -18,21 +20,15 @@ public class DAOUser {
 
 	private Logger LOG = LoggerFactory.getLogger(DAOUser.class);
 
-	public void saveUser(User user) {
-		Transaction transaction = null;
+	public boolean saveUser(User user) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
-			transaction = session.beginTransaction();
-			// save the student object
 			session.save(user);
-			// commit transaction
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
+			return true;
+		}catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+			
 	}
 
 	public User getUserByEmail(String email) {

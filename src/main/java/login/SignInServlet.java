@@ -16,7 +16,6 @@ import DAO.DAOUser;
 import model.User;
 import net.bytebuddy.agent.builder.AgentBuilder.InitializationStrategy.Dispatcher;
 
-
 @WebServlet("/login/signIn")
 public class SignInServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,13 +38,11 @@ public class SignInServlet extends HttpServlet {
 		if(!password.equals(repeatedPassword)) {
 			LOG.debug("Password diverse");
 		}
-		User user = dao.getUserByEmail(email);
-		if(user == null) {
-			user = new User(username,password,email);
-			dao.saveUser(user);
+		User user = new User(username,password,email);
+		if(dao.saveUser(user)) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			request.setAttribute("userRegistered", "Utente registrato correttamente. Fai il Login");
-            dispatcher.forward(request, response);
+	        dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("invalidLogin.jsp");;
 		}

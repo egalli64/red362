@@ -6,10 +6,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -44,37 +40,19 @@
 </body>
 
 <script type='text/javascript'>
-    $(document).ready(function(){
-        $("input:radio[name=option]").click(function() {
-            var value = $(this).val();
-            var image_name;
-            if(value == 'Guerriero'){
-                image_name = "images/Guerriero.jpg";
-            }else{
-                if(value == 'Vate'){
-                    image_name = "images/Vate.jpg";
-                }else{
-                    image_name = "images/Prete.jpg";
-                }
-            }
-             $('#formula').attr('src', image_name);
-        });
-    });
-
-	function guerClick() {
-		var image = document.getElementsByName("showimage");
-		image.innerHTML = '<img src="images/Guerriero.jpg">';
-	}
-	function vateClick() {
-		var image = document.getElementsByName("showimage");
-		image.src = '<img src="images/Vate.jpg">';
-	}
-	function preteClick() {
-		System.out.println("click verified");
-		document.getElementsByName("showimage").image.src = '<img src="images/Prete.jpg">';
+	window.onload = myFunction();
+	function myFunction() {
+		document.getElementById("guerriero").onclick = function() {
+			document.getElementById("formula").src = "images/Guerriero.jpg";
+		}
+		document.getElementById("vate").onclick = function() {
+			document.getElementById("formula").src = "images/Vate.jpg";
+		}
+		document.getElementById("prete").onclick = function() {
+			document.getElementById("formula").src = "images/Prete.jpg";
+		}
 	}
 </script>
 	
-</script>
 </html>
 
