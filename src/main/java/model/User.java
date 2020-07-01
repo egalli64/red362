@@ -1,22 +1,26 @@
 package model;
 
-import javax.persistence.Column;
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 	private String username;
 	private String password;
 	private String email;
+	private Set<Character> characters;
 
 	public User(String username, String password, String email) {
 		super();
@@ -28,6 +32,8 @@ public class User {
 	public User() {
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getUser_id() {
 		return user_id;
 	}
@@ -58,6 +64,15 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	public Set<Character> getCharacters() {
+		return characters;
+	}
+
+	public void setCharacters(Set<Character> characters) {
+		this.characters = characters;
 	}
 
 	@Override

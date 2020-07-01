@@ -24,7 +24,7 @@
 		<a class="navbar-brand" href="userLogged.jsp">Dungeon and Dragons</a>
 	</nav>
 	<div class="wrapper">
-		<form id="formContent">
+		<form id="formContent" action="../gameplay/play">
 			<h2 class="font-weight-bold text-success">Benvenuto: <c:out value="${sessionScope.user.username}" /></h2><br>
 			<input type="radio" name="option" value="Guerriero" id="guerriero"
 				checked>Guerriero <br> <input type="radio"
@@ -35,7 +35,7 @@
 					class="rounded mx-auto d-block" alt="..." id="formula">
 			</div>
 			<div id="formFooter">
-				<button class="btn btn-primary text-uppercase font-weight-bold"> Gioca</button>
+				<button class="btn btn-primary text-uppercase font-weight-bold" type="submit"> Gioca</button>
 			</div>
 		</form>
 	</div>
