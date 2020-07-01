@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
+    <meta charset="ISO-8859-1" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -21,7 +23,7 @@
   <body>
     <!--NavBar Identificativa colore Squadra-->
     <nav class="navbar fixed-top navbar-light red">
-      <a class="navbar-brand" href="#">Dungeon and Dragons</a>
+      <a class="navbar-brand" href="login.jsp">Dungeon and Dragons</a>
     </nav>
 
     <div class="wrapper">
@@ -31,30 +33,59 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-          <input type="email" name="email" id="email" placeholder="Email"/>
+        <form name="signin" method="post" action="signIn" onsubmit="return validateForm()">
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <label id="errorEmail" for="email"></label>
           <input
             type="text"
-            name = "username"
+            name="username"
             id="username"
             placeholder="Inserisci il tuo nome utente"
+            required
           />
+          <label id="errorEmail" for="username"></label>
           <input
             type="password"
-            name = "password"
+            name="password"
             id="password"
             placeholder="Password (min 8 char)"
+            required
           />
+          <label id="errorPassword" for="password"></label>
           <input
-          type="password"
-          name="repeatedPassword"
-          id="repeatedPassword"
-          placeholder="Ripeti la password"
-        />
-          <input type="submit" value="Sign In" />
+            type="password"
+            name="repeatedPassword"
+            id="repeatedPassword"
+            placeholder="Ripeti la password"
+            required
+          />
+          <label id="errorRepeated" for="repeatedPassword"></label>
+          <input type="submit" id="signin" value="Sign In" />
         </form>
       </div>
     </div>
+
+    <script type="text/javascript">
+      function validateForm() {
+        var username = document.forms["signin"]["username"].value;
+        var password = document.forms["signin"]["password"].value;
+        var repeated = document.forms["signin"]["repeatedPassword"].value;
+        if (username == "") {
+          document.getElementById("errorEmail").innerHTML = "Campo Vuoto";
+          return false;
+        }
+        if (password == "" || password.length < 8) {
+            document.getElementById("errorPassword").innerHTML = "Campo password non valido";
+            return false;
+        }
+        if (password !== repeated) {
+            document.getElementById("errorRepeated").innerHTML = "Ripetere bene la password";
+            return false;
+        }
+        return true;
+        
+      }
+    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -73,3 +104,4 @@
     ></script>
   </body>
 </html>
+

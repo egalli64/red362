@@ -24,6 +24,13 @@ body {
     color: #cccccc;
   }
   
+  label {
+	font-size: medium;
+	color: red;
+	text-align: left;
+	font-weight: bold;
+}  
+  
   
   
   /* STRUCTURE */
