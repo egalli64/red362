@@ -26,6 +26,7 @@
 	<div class="wrapper">
 		<form id="formContent" action="../gameplay/play">
 			<h2 class="font-weight-bold text-success">Benvenuto: <c:out value="${sessionScope.user.username}" /></h2><br>
+			 <span class="input-group-text" id="basic-addon3">Inserisci nickname</span><br>
 			<input type="radio" name="option" value="Guerriero" id="guerriero"
 				checked>Guerriero <br> <input type="radio"
 				name="option" value="Vate" id="vate">Vate <br> <input
