@@ -26,17 +26,14 @@ CREATE TABLE IF NOT EXISTS characters(
 );
     
 CREATE TABLE IF NOT EXISTS gamesession (
-	game_id integer,
+	game_id integer auto_increment primary key,
 	nickname varchar(20) unique,
-	user_id integer unique,
 	lastconnection date,
 	level integer,
 	strength_exp decimal(5,2),
 	charm_exp decimal(5,2),
 	intelligence_exp decimal(5,2),
-	PRIMARY KEY(game_id),
-	CONSTRAINT FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	CONSTRAINT FOREIGN KEY (nickname) REFERENCES characters(nickname) ON DELETE CASCADE
+	CONSTRAINT FOREIGN KEY (nickname) REFERENCES characters(nickname) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS scenario (

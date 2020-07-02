@@ -12,7 +12,7 @@ public class DAOUser {
 
 	public boolean saveUser(User user) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			session.save(user);
+			session.saveOrUpdate(user);
 			return true;
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -41,4 +41,5 @@ public class DAOUser {
 		}
 		return null;
 	}
+	
 }

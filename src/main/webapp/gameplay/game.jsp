@@ -2888,7 +2888,7 @@
 			</rect>
 		</svg>
 		<div onclick="application.goToTargetView(event)" id="Avanti">
-			<span>Avanti</span>
+			<span><a href="game2.jsp">Avanti</a></span>
 		</div>
 	</div>
 	</body>

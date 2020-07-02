@@ -1,6 +1,7 @@
 package login;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,11 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.DAOCharacter;
+import DAO.DAOGame;
 import DAO.DAOUser;
+import model.Character;
 import model.User;
 
-@WebServlet("/login/LoginServerlet")
-public class LoginServerlet extends HttpServlet {
+@WebServlet("/login/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private DAOUser loginDao = new DAOUser();
@@ -41,6 +45,8 @@ public class LoginServerlet extends HttpServlet {
         if (user != null) {
         	HttpSession session = request.getSession();
         	session.setAttribute("user", user);
+            DAOCharacter daoCharacter = new DAOCharacter();
+            List<Character> characters = daoCharacter.getCharacterByUser(user);
             RequestDispatcher dispatcher = request.getRequestDispatcher("userLogged.jsp");
             dispatcher.forward(request, response);
         } else {

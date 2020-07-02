@@ -42,7 +42,7 @@
 			</div>
 
 			<!-- Login Form -->
-			<form action="LoginServerlet" method="post">
+			<form action="LoginServlet" method="post">
 				<input type="email" id="login" class="fadeIn second" name="email"
 					placeholder="Email"> <input type="password" id="password"
 					class="fadeIn third" name="password" placeholder="Password">
