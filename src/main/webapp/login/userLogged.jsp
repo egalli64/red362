@@ -25,18 +25,31 @@
 	</nav>
 	<div class="wrapper">
 		<form id="formContent" action="../gameplay/play">
-			<h2 class="font-weight-bold text-success">Benvenuto: <c:out value="${sessionScope.user.username}" /></h2><br>
-			 <span class="input-group-text" id="basic-addon3">Inserisci nickname</span><br>
-			<input type="radio" name="option" value="Guerriero" id="guerriero"
-				checked>Guerriero <br> <input type="radio"
-				name="option" value="Vate" id="vate">Vate <br> <input
-				type="radio" name="option" value="Prete" id="prete"> Prete <br>
+			<h2 class="font-weight-bold text-success">
+				Benvenuto:
+				<c:out value="${sessionScope.user.username}" />
+			</h2>
+			<br>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon3">Inserisci
+						nickname</span>
+				</div>
+				<input type="text" class="form-control" id="basic-url"
+					aria-describedby="basic-addon3">
+			</div>
+			<br> <input type="radio" name="option" value="Guerriero"
+				id="guerriero" checked>Guerriero <br> <input
+				type="radio" name="option" value="Vate" id="vate">Vate <br>
+			<input type="radio" name="option" value="Prete" id="prete">
+			Prete <br>
 			<div class="container-image">
-				<img src="images/Guerriero.jpg"
-					class="rounded mx-auto d-block" alt="..." id="formula">
+				<img src="images/Guerriero.jpg" class="rounded mx-auto d-block"
+					alt="..." id="formula">
 			</div>
 			<div id="formFooter">
-				<button class="btn btn-primary text-uppercase font-weight-bold" type="submit"> Gioca</button>
+				<button class="btn btn-primary text-uppercase font-weight-bold"
+					type="submit">Gioca</button>
 			</div>
 		</form>
 	</div>
