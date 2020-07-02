@@ -99,7 +99,7 @@ public class Game implements Serializable{
 		this.level = level;
 	}
 
-	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+	@ManyToOne()
 	@JoinColumn(name="nickname")
 	public Character getCharacter() {
 		return character;

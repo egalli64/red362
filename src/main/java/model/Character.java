@@ -43,7 +43,7 @@ public class Character implements Serializable {
 		this.nickname = nickname;
 	}
 
-	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+	@ManyToOne()
 	@JoinColumn(name="user_id")
 	public User getUser() {
 		return user;

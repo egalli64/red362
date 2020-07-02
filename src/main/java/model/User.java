@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -27,6 +28,7 @@ public class User implements Serializable {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.characters = new HashSet<Character>();
 	}
 
 	public User() {
@@ -66,7 +68,7 @@ public class User implements Serializable {
 		this.email = email;
 	}
 	
-	@OneToMany(mappedBy = "user", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", cascade = {CascadeType.ALL, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH})
 	public Set<Character> getCharacters() {
 		return characters;
 	}

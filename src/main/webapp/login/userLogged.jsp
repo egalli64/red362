@@ -36,7 +36,7 @@
 						nickname</span>
 				</div>
 				<input type="text" class="form-control" id="basic-url"
-					aria-describedby="basic-addon3">
+					aria-describedby="basic-addon3" name="nickname">
 			</div>
 			<br> <input type="radio" name="option" value="Guerriero"
 				id="guerriero" checked>Guerriero <br> <input

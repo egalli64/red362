@@ -1,9 +1,11 @@
 package DAO;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import model.Character;
 import model.User;
 
 public class DAOUser {
@@ -11,14 +13,22 @@ public class DAOUser {
 	private Logger LOG = LoggerFactory.getLogger(DAOUser.class);
 
 	public boolean saveUser(User user) {
+		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			LOG.info("Opened Session");
+			transaction = session.getTransaction();
+			transaction.begin();
 			session.saveOrUpdate(user);
+			LOG.info("User is saved");
+			session.flush();
+			transaction.commit();
 			return true;
 		}catch (Exception e) {
+			LOG.warn("Errore nel save User");
 			e.printStackTrace();
+			transaction.rollback();
 			return false;
-		}
-			
+		}		
 	}
 
 	public User getUserByEmail(String email) {
